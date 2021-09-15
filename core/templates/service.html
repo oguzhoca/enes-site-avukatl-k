@@ -1,38 +1,53 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-  <title>Octort</title>
-
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-
-  <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- font awesome style -->
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
-
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+    <title>Öztürk Hukuk</title>
+  
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+  
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+    <!-- font awesome style -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+  
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+    <script type="text/javascript">
+      (function () {
+          var options = {
+              whatsapp: "+905466555348",
+              call_to_action: "Merhaba, nasıl yardımcı olabilirim?",
+              position: "right",
+          };
+          var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
+          var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+          s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+          var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+      })();
+    </script>
 </head>
 
 <body class="sub_page">
   <div class="hero_area">
     <div class="hero_bg_box">
-      <img src="images/hero-bg.jpg" alt="">
+      <img src="{% static 'images/hero-bg.jpg' %}" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
@@ -40,22 +55,23 @@
         <div class="container-fluid header_top_container">
 
           <div class="contact_nav">
-            <a href="">
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <a href="{% url 'contact' %}
+            ">
+              <i class="fa fa-map-marker"  aria-hidden="true"></i>
               <span>
-                Location
+                Adres
               </span>
             </a>
-            <a href="">
+            <a href="tel:+905466555348">
               <i class="fa fa-phone" aria-hidden="true"></i>
               <span>
-                Call : +01 123455678990
+                05466555348
               </span>
-            </a>
+              </a>
             <a href="">
               <i class="fa fa-envelope" aria-hidden="true"></i>
               <span>
-                demo@gmail.com
+                ozturkhukuk@gmail.com
               </span>
             </a>
           </div>
@@ -64,12 +80,11 @@
       <div class="header_bottom">
         <div class="container-fluid">
           <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand " href="index.html">
+            <a class="navbar-brand " href="{% url 'index' %}">
               <span>
-                Octort
+                Öztürk Hukuk
               </span>
             </a>
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class=""> </span>
             </button>
@@ -77,25 +92,20 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav  ">
                 <li class="nav-item ">
-                  <a class="nav-link" href="index.html">Home </a>
+                  <a class="nav-link" href="{% url 'index' %}">Anasayfa <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.html"> About</a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="service.html">Services <span class="sr-only">(current)</span> </a>
+                  <a class="nav-link" href="{% url 'about' %}"> Hakkımızda</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="team.html"> Team </a>
+                  <a class="nav-link" href="{% url 'service' %}">Hizmetlerimiz</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact Us</a>
+                  <a class="nav-link" href="{% url 'team' %}"> Takımımız </a>
                 </li>
-                <form class="form-inline justify-content-center">
-                  <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                  </button>
-                </form>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'contact' %}">İletişim</a>
+                </li>
               </ul>
             </div>
           </nav>
@@ -112,21 +122,21 @@
       <div class="container ">
         <div class="heading_container">
           <h2>
-            <span class="dot_design"></span> Our Services
+            <span class="dot_design"></span> Sunduğumuz Hizmetler
           </h2>
           <p>
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+            Hukuki alanda ihtiyaç duyduğunuz tüm desteği sağlamaya hazırız.
           </p>
         </div>
         <div class="row">
           <div class="col-md-6 col-xl-4 ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/s1.png" alt="">
+                <img src="{% static 'images/s1.png' %}" alt="">
               </div>
               <div class="detail-box">
                 <h5>
-                  Family Law
+                  Aile Hukuku
                 </h5>
                 <p>
                   fact that a reader will be distracted by the readable looking at its layout.
@@ -140,11 +150,11 @@
           <div class="col-md-6 col-xl-4 ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/s2.png" alt="">
+                <img src="{% static 'images/s2.png' %}" alt="">
               </div>
               <div class="detail-box">
                 <h5>
-                  Estate Law
+                  Taşınmazlar
                 </h5>
                 <p>
                   fact that a reader will be distracted by the readable looking at its layout.
@@ -158,11 +168,11 @@
           <div class="col-md-6 col-xl-4 ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/s3.png" alt="">
+                <img src="{% static 'images/s3.png' %}" alt="">
               </div>
               <div class="detail-box">
                 <h5>
-                  Employment Law
+                  İş Hukuku
                 </h5>
                 <p>
                   fact that a reader will be distracted by the readable looking at its layout.
@@ -176,11 +186,11 @@
           <div class="col-md-6 col-xl-4 ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/s4.png" alt="">
+                <img src="{% static 'images/s4.png' %}" alt="">
               </div>
               <div class="detail-box">
                 <h5>
-                  Banking Law
+                  Miras Davaları
                 </h5>
                 <p>
                   fact that a reader will be distracted by the readable looking at its layout.
@@ -194,11 +204,11 @@
           <div class="col-md-6 col-xl-4 ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/s5.png" alt="">
+                <img src="{% static 'images/s5.png' %}" alt="">
               </div>
               <div class="detail-box">
                 <h5>
-                  Criminal Law
+                  Suçlar
                 </h5>
                 <p>
                   fact that a reader will be distracted by the readable looking at its layout.
@@ -212,11 +222,11 @@
           <div class="col-md-6 col-xl-4 ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/s6.png" alt="">
+                <img src="{% static 'images/s6.png' %}" alt="">
               </div>
               <div class="detail-box">
                 <h5>
-                  Business Law
+                  Mahkeme
                 </h5>
                 <p>
                   fact that a reader will be distracted by the readable looking at its layout.
@@ -247,13 +257,13 @@
         <div class="row ">
           <div class="col-sm-6 col-md-4 col-lg-3">
             <div class="info_detail">
-              <a href="index.html">
+              <a href="{% url 'index' %}">
                 <h4>
-                  Octort
+                  Öztürk Hukuk
                 </h4>
               </a>
               <p>
-                Soluta odit exercitationem rerum aperiam eos consectetur impedit delectus qui reiciendis, distinctio, asperiores fuga labore Magni natus.
+                Kütahya merkezli büromuzdan Türkiye'nin 4 bir yanına hizmet sunmaktayız.
               </p>
               <div class="social_box">
                 <a href="">
@@ -273,44 +283,32 @@
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 mx-auto">
             <h4>
-              Contact us
+              İletişim Bilgileri
             </h4>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit
+              
             </p>
             <div class="contact_nav">
-              <a href="">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span>
-                  Location
-                </span>
-              </a>
-              <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>
-                  Call : +01 123455678990
-                </span>
-              </a>
-              <a href="">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span>
-                  Email : demo@gmail.com
-                </span>
-              </a>
+          <a href="{% url 'contact' %}">
+            <i class="fa fa-map-marker"  aria-hidden="true"></i>
+            <span>
+              Alipaşa, Orduevi Sk. No:5, 43020 Kütahya Merkez/Kütahya
+            </span>
+          </a>
+          <a href="tel:+905466555348">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <span>
+              05466555348
+            </span>
+            </a>
+          <a href="">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <span>
+              ozturkhukuk@gmail.com
+            </span>
+          </a>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="info_form">
-              <h4>
-                SIGN UP TO OUR NEWSLETTER
-              </h4>
-              <form action="">
-                <input type="text" placeholder="Enter Your Email" />
-                <button type="submit">
-                  Subscribe
-                </button>
-              </form>
-            </div>
           </div>
         </div>
       </div>
@@ -319,24 +317,17 @@
   <!-- end info_section -->
 
   <!-- footer section -->
-  <footer class="footer_section">
-    <div class="container">
-      <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="https://html.design/">Free Html Templates</a>
-      </p>
-    </div>
-  </footer>
+
   <!-- footer section -->
 
   <!-- jQery -->
-  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="../static/js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <!-- bootstrap js -->
-  <script src="js/bootstrap.js"></script>
+  <script src="../static/js/bootstrap.js"></script>
   <!-- custom js -->
-  <script src="js/custom.js"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
   <!-- End Google Map -->
